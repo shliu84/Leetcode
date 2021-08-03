@@ -1,7 +1,7 @@
 
 /**  
 
- * @Title: Solution3.java
+ * @Title: DoublePointer.java
 
  * @Prject: leetcode
 
@@ -21,7 +21,7 @@ package implement_strStr_028;
 
 /**
 
- * @ClassName: Solution3
+ * @ClassName: DoublePointer
 
  * @Description: TODO
 
