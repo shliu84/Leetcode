@@ -51,21 +51,17 @@ public class CompareSubstring {
         int nLen = needle.length();
         // return if needle shorter than hay
         if (nLen == 0) return 0;
-
         if (hLen < nLen)
             return -1;
-
+        
         // compare the substring
         for (int i = 0; i < (hLen - nLen) + 1; i++) {
             if (haystack.charAt(i) == needle.charAt(0)) {
                 if (haystack.substring(i, i + nLen).equals(needle))
                     return i;
-                
             }
-            
         }
         return -1;
-
     }
 	
     
@@ -86,6 +82,10 @@ public class CompareSubstring {
         int a = s.strStr("Hello", "ll");
         System.out.print(a);
     }
-	
-
 }
+
+/*
+ * Result: Runtime: 304 ms, faster than 45.50% of Java online submissions for
+ * Implement strStr(). Memory Usage: 39.7 MB, less than 12.36% of Java online
+ * submissions for Implement strStr().
+ */
