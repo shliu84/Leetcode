@@ -1,24 +1,18 @@
-class Solution(object):
-    def search(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: int
-        """
-        mid = int(len(nums)/2)
-        if nums[mid] == target:
-            return mid
+from typing import List
 
-        if mid == 0:
-            return -1
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        (l, r) = (0, len(nums) - 1)
+        return self.binary(nums, target, l, r)
 
-        elif nums[mid] > target:
-            return search(nums[0:mid], target)
-
+    def binary(self, nums: List[int], target: int, l: int, r: int) -> int:
+        if l <= r:
+            mid = int((l + r) / 2)
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] < target:
+                return self.binary(nums, target, mid + 1, r)
+            else:
+                return self.binary(nums, target, l, mid - 1)
         else:
-            return search(nums[0:mid], target)
-
-nums = [-1,0,3,5,9,12]
-target = 9
-
-
+            return -1
