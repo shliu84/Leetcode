@@ -34,6 +34,12 @@ class Solution:
         else:
             return -1
 
+        def isFirstBadVersion(n):
+            if not isBadVersion(n-1) and isBadVersion(nums[n]):
+                return true
+            else:
+                return false
+
 def isBadVersion(n):
     if n >= 3:
         return True
