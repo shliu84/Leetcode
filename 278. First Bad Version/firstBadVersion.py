@@ -13,32 +13,30 @@ class Solution:
         nums = list(range(n+1))
         self.ternary(nums, 1, n)
 
-
-    def ternary(self, nums: List[int], l: int, r: int) -> int:
-        if l < r:
-            midleft = int((l + r) / 4)
-            midright = midleft * 2
-            print(midleft)
-
-            if not isBadVersion(nums[midleft]) and isBadVersion(nums[midright]):
-                if midleft == midright - 1:
-                    return midright
-                else:
-                    return self.ternary(nums, midleft, midright)
-            elif isBadVersion(nums[midleft]) and isBadVersion(nums[midright]):
-                return self.ternary(nums, l, midleft)
-            elif not isBadVersion(nums[midleft]) and not isBadVersion(nums[midright]):
-                return self.ternary(nums,midright+1, r)
+    def binary(self, l: int, r: int) -> int:
+        if l <= r:
+            mid = int((l + r) / 2)
+            if isFirstBadVersion(mid):
+                return mid
+            elif isBadVersion(mid):
+                return  self.binary(l, mid - 1)
             else:
-                print("error")
+                return self.binary(mid + 1, r)
         else:
             return -1
 
         def isFirstBadVersion(n):
-            if not isBadVersion(n-1) and isBadVersion(nums[n]):
-                return true
+            if n-1>0:
+                if not isBadVersion(n-1) and isBadVersion(nums[n]):
+                    return True
+                else:
+                    return False
             else:
-                return false
+                if isBadVersion(n):
+                    return True
+                else:
+                    print("There are not bad version.")
+                    return False
 
 def isBadVersion(n):
     if n >= 3:
