@@ -23,16 +23,27 @@ class Solution:
         # for i in range (k):
         #     nums = rotateOneTime(nums)
         
-        
-        def n_Left_Rotate_k_Time (nums, n, k):
-            for x in range (k):
-                nums[n-1],nums[n] = nums[n],nums[n-1]
-                n = n - 1
+        # method 4 failed
+        # def n_Left_Rotate_k_Time (nums, n, k):
+        #     for x in range (k):
+        #         nums[n-1],nums[n] = nums[n],nums[n-1]
+        #         n = n - 1
             
-        k = k % len(nums)    
-        l = len(nums) - k
-        for i in range (l, len(nums)):
-            n_Left_Rotate_k_Time(nums, i, l)
+        # k = k % len(nums)    
+        # l = len(nums) - k
+        # for i in range (l, len(nums)):
+        #     n_Left_Rotate_k_Time(nums, i, l)
         
         # return nums
-        
+
+
+        #method 5 https://youtu.be/BHr381Guz3Y
+        def reverse(nums, l, r):
+            while l<r:
+                nums[l],nums[r] = nums[r], nums[l]
+                l=l+1
+                r=r-1
+        k = k % len(nums)
+        reverse(nums,0, len(nums)-1)
+        reverse(nums,0,k-1)
+        reverse(nums,k, len(nums)-1)
