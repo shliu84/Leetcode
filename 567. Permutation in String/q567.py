@@ -1,4 +1,4 @@
-import collections
+#https://www.youtube.com/watch?v=UbyhOgBN834&t=291s
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         
