@@ -1,7 +1,7 @@
 #https://www.youtube.com/watch?v=UbyhOgBN834&t=291s
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        
+        if len(s1)>len(s2): return False
         def same_permutation(a, b):
             d = collections.defaultdict(int)
             for x in a:
